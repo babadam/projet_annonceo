@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  mar. 17 oct. 2017 à 16:56
--- Version du serveur :  10.1.22-MariaDB
--- Version de PHP :  7.1.4
+-- Client :  127.0.0.1
+-- Généré le :  Mar 17 Octobre 2017 à 21:30
+-- Version du serveur :  10.1.21-MariaDB
+-- Version de PHP :  7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -45,6 +43,13 @@ CREATE TABLE `annonce` (
   `date_enregistrement` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `annonce`
+--
+
+INSERT INTO `annonce` (`id_annonce`, `titre`, `description_courte`, `description_longue`, `prix`, `photo`, `pays`, `ville`, `adresse`, `cp`, `membre_id`, `photo_id`, `categorie_id`, `date_enregistrement`) VALUES
+(1, 'Audi a3', 'Audi a3 gris', 'Vends audi a3 controle technique ok 2009', 1500, '', 'france', 'colombes', '25 rue de la voiture', 92700, 3, 0, 0, '2017-10-17 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -56,6 +61,13 @@ CREATE TABLE `categorie` (
   `titre` varchar(255) NOT NULL,
   `motscles` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `categorie`
+--
+
+INSERT INTO `categorie` (`id_categorie`, `titre`, `motscles`) VALUES
+(1, 'Automobile', 'voiture moto camion');
 
 -- --------------------------------------------------------
 
@@ -72,7 +84,7 @@ CREATE TABLE `commentaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `commentaire`
+-- Contenu de la table `commentaire`
 --
 
 INSERT INTO `commentaire` (`id_commentaire`, `membre_id`, `annonce_id`, `commentaire`, `date_enregistrement`) VALUES
@@ -98,7 +110,7 @@ CREATE TABLE `membre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `membre`
+-- Contenu de la table `membre`
 --
 
 INSERT INTO `membre` (`id_membre`, `pseudo`, `mdp`, `nom`, `prenom`, `telephone`, `email`, `civilite`, `statut`, `date_enregistrement`) VALUES
@@ -121,6 +133,14 @@ CREATE TABLE `note` (
   `date_enregistrement` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `note`
+--
+
+INSERT INTO `note` (`id_note`, `membre_id1`, `membre_id2`, `note`, `avis`, `date_enregistrement`) VALUES
+(1, 2, 3, 4, 'Super produit, livraison rapide.', '0000-00-00 00:00:00'),
+(2, 2, 3, 4, 'Super produit, livraison rapide.', '2017-10-17 21:28:55');
+
 -- --------------------------------------------------------
 
 --
@@ -137,7 +157,7 @@ CREATE TABLE `photo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Index pour les tables déchargées
+-- Index pour les tables exportées
 --
 
 --
@@ -177,19 +197,19 @@ ALTER TABLE `photo`
   ADD PRIMARY KEY (`id_photo`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
 -- AUTO_INCREMENT pour la table `annonce`
 --
 ALTER TABLE `annonce`
-  MODIFY `id_annonce` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_annonce` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id_categorie` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_categorie` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `commentaire`
 --
@@ -204,13 +224,12 @@ ALTER TABLE `membre`
 -- AUTO_INCREMENT pour la table `note`
 --
 ALTER TABLE `note`
-  MODIFY `id_note` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_note` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `photo`
 --
 ALTER TABLE `photo`
-  MODIFY `id_photo` int(3) NOT NULL AUTO_INCREMENT;COMMIT;
-
+  MODIFY `id_photo` int(3) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

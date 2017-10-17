@@ -2,7 +2,7 @@
 require_once('inc/init.inc.php');
 
 // debug($_SESSION);
-echo '<pre>'; print_r($_SESSION); echo '</pre>';
+// echo '<pre>'; print_r($_SESSION); echo '</pre>';
 // debug($_SESSION['membre']);
 
 // Traitement pour rediriger l'utilisateur s'il n'est pas connecté

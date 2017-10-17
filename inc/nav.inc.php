@@ -31,7 +31,7 @@
           }
           if(userConnecte())
           { // accès page membre et admin
-               echo '<li><a href="#">Profil</a></li>';
+               echo '<li><a href="'. URL .'profil.php">Profil</a></li>';
                echo '<li><a href="#">Annonce</a></li>';
                echo '<li><a href="' . URL . 'connexion.php?action=deconnexion">Déconnexion</a></li>';
 
