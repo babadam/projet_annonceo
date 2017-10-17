@@ -4,7 +4,7 @@ require_once('inc/init.inc.php');
 // Traitement pour la déconnexion :
 if(isset($_GET['action']) && $_GET['action'] == 'deconnexion'){ // Si une action est demandée dans l'url et que cette action est "deconnexion" alors on procède à la deconnexion.
     unset($_SESSION['membre']);
-    header('location:connexion.php');
+    header('location:' . URL . 'connexion.php');
 }
 
 // Traitement pour rediriger l'utilisateur s'il est déjà connécté
@@ -50,7 +50,7 @@ if(!empty($_POST)){
                         $_SESSION['membre'][$indice] = $valeur;
                     }
                 }
-                // debug($_SESSION);
+                debug($membre);
 
                 // redirection
                 header('location:profil.php');
@@ -77,6 +77,7 @@ if(!empty($_POST)){
 
 $page = 'Connexion';
 require_once('inc/header.inc.php');
+require_once('inc/nav.inc.php');
 ?>
 <!-- Contenu HTML -->
 <h1>Connexion</h1>

@@ -1,5 +1,5 @@
 <?php
-require('connexion.php');
+require('inc/init.inc.php');
 
 
 // Attention à personnaliser pour chaque page
