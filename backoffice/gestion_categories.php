@@ -44,7 +44,7 @@ $contenu .= '<tr>'; // création de la ligne de titre
 
     $contenu .= '<td class = "modif"><a href="?action=modification&id_categorie=' . $gestion_categorie['id_categorie']  . '"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></button></a></td>';
 
-    $contenu .= '<td class = "modif"><a href="modif_membres.php"><button type="button" class="btn btn-info"><span class="glyphicon glyphicon-user" aria-hidden="true"></button></a></td>';
+    $contenu .= '<td class = "modif"><a href="modif_membres.php"><button type="button" class="btn btn-info"><span class= "glyphicon glyphicon-plus" aria-hidden="true"></button></a></td>';
 
     $contenu .= '<td class="supr"><a href="supprim_categories.php?id='. $gestion_categorie['id_categorie'] .'"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
 
@@ -76,9 +76,9 @@ if(isset($_GET['action']) && $_GET['action'] == 'modification')
     $titre = (isset($categorie_actuel)) ? $categorie_actuel['titre'] : ''; // meme finalité que le if/else du dessus mais de manière simplifiée
     $motscles = (isset($categorie_actuel)) ? $categorie_actuel['motscles'] : '';
 
-
 ?>
-<?= $msg ?>
+
+
 
     <div class="container">
         <div class="row">
@@ -102,9 +102,46 @@ if(isset($_GET['action']) && $_GET['action'] == 'modification')
             <input type="submit" class="form-control" name=""  value="Modifier">
         </form>
     </div>
+
+
 <?php
 }
+?>
+<h2>Ajout d'une catégorie</h2>;
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 order-md-0">
+            <form class="form-horizontal" action="" method="post">
+
+                    <input type="hidden" class="form-control" name="id_categorie" id ="id_categorie" value="">
 
 
-echo '<span><a href="">Ajout d\'une catégorie</a></span>';
+                <div class="form-group">
+                    <label for="titre">Titre </label>
+                    <input type="text" class="form-control" name="titre" id ="titre" value="">
+                </div>
+
+                <div class="form-group">
+                    <label for="motscles">Mots clés</label>
+                    <input type="text" class="form-control" name="motscles" id ="motscles" value="">
+                </div>
+
+        </div>
+        <div class="col-md-5">
+            <input type="submit" class="form-control btn btn-info" name=""  value="Ajouter">
+        </div>    
+    </form>
+</div>
+<?php
+$resultat2 = $pdo -> prepare("INSERT INTO categorie (titre, motscles) VALUES (:titre, :motscles)");
+
+$resultat2 -> bindParam(':titre', $_POST['titre'], PDO::PARAM_STR);
+$resultat2 -> bindParam(':motscles', $_POST['motscles'], PDO::PARAM_STR);
+
+$resultat2 -> execute();
+$msg .= '<div class="alert alert-success">Catégorie ajoutée!</div>';
+echo $msg;
+
  include('../inc/footer.inc.php');
+?>

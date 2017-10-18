@@ -56,7 +56,7 @@ if(!empty($_POST)){
 
 
             $resultat -> execute();
-            $msg .= '<div class="alert alert-success">Annonce publié!</div>';
+            $msg .= '<div class="alert alert-success">Annonce publiée!</div>';
             // echo '<pre>'; print_r($_POST); echo '</pre>';
 
     }
@@ -107,16 +107,12 @@ if(!empty($_POST)){
                 <img src="<?= RACINE_SITE ?>photo/<?= $photo ?>" height="100px"/>
                 <input type="hidden" name="photo_actuelle" value="" />
                 <div class="form-group">
-                    <label for="pays">Pays</label>
-                    <select class="form-control" name="pays">
-                        <option>France</option>
-                    </select>
+                    <label for="ville">Ville</label>
+                    <input type="text" class="form-control" name="ville" id ="ville" value="">
                 </div>
                 <div class="form-group">
-                    <label for="ville">Ville</label>
-                    <select class="form-control" name="ville">
-                        <option>Colombes</option>
-                    </select>
+                    <label for="pays">Pays</label>
+                    <input type="text" class="form-control" name="pays" id ="pays" value="">
                 </div>
                 <div class="form-group">
                     <label for="adresse">Adresse</label>

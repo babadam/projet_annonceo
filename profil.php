@@ -17,24 +17,25 @@ require_once('inc/nav.inc.php');
 ?>
 <!-- Contenu HTML -->
 <h1>Profil</h1>
-<div class="profil">
-    <p class="profil_bienvenue"> Bienvenue, <?= $pseudo ?></p><br>
+<div class="container">
+    <div class="profil">
+        <p class="profil_bienvenue"> Bienvenue, <?= $pseudo ?></p><br>
 
     <div class="profil_img">
         <img src="<?= RACINE_SITE ?>img/default.jpg">
     </div>
 
-    <div class="profil_infos">
-        <ul>
-            <li>Pseudo : <b><?= $pseudo ?></b></li>
-            <li>Prénom : <b><?= $prenom ?></b></li>
-            <li>Nom : <b><?= $nom ?></b></li>
-            <li>Email : <b><?= $email ?></b></li>
-            <li>Téléphone : <b><?= $telephone ?></b></li>
+    <div class="profil_infos col-md-5">
+        <ul >
+            <li class="list-group-item">Pseudo : <b><?= $pseudo ?></b></li>
+            <li class="list-group-item">Prénom : <b><?= $prenom ?></b></li>
+            <li class="list-group-item">Nom : <b><?= $nom ?></b></li>
+            <li class="list-group-item">Email : <b><?= $email ?></b></li>
+            <li class="list-group-item">Téléphone : <b><?= $telephone ?></b></li>
         </ul>
     </div>
+    </div>
 </div>
-
 
 
 

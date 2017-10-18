@@ -56,18 +56,18 @@ if(!empty($_POST)){
                 header('location:profil.php');
             }
             else{
-                $msg .= '<div class="erreur"> Mot de passe erroné !</div>';
+                $msg .= '<div class="alert alert-danger">Mot de passe erroné !</div>';
             }
         }
 
 
         else{
-            $msg .= '<div class="erreur"> Le pseudo '. $_POST['pseudo'].' n\'est pas reconnu.</div>';
+            $msg .= '<div class="alert alert-danger"> Le pseudo '. $_POST['pseudo'].' n\'est pas reconnu.</div>';
         }
 
     }// fin du if de verification si les deux champs ne sont pas vides
     else{
-        $msg .= '<div class="erreur"> Veuillez renseigner un pseudo et un mot de passe !</div>';
+        $msg .= '<div class="alert alert-danger"> Veuillez renseigner un pseudo et un mot de passe !</div>';
     }
 
 
@@ -82,15 +82,17 @@ require_once('inc/nav.inc.php');
 <!-- Contenu HTML -->
 <h1>Connexion</h1>
 
-    <form action="" method="post">
+    <form class ="form-inline" action="" method="post">
         <?= $msg ?>
-        <label>Pseudo :</label>
-        <input type="text" name="pseudo">
-
-        <label>Mot de passe :</label>
-        <input type="text" name="mdp">
-
-        <input type="submit" value="Connexion">
+        <div class="form-group">
+            <label>Pseudo :</label>
+            <input type="text" class="form-control" name="pseudo">
+        </div>
+        <div class="form-group">
+            <label>Mot de passe :</label>
+            <input type="text" class="form-control" name="mdp">
+        </div>
+        <input type="submit" class="btn btn-default" value="Connexion">
     </form>
 
 
