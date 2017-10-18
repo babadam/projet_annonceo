@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">ANNONCEO</a>
+      <a class="navbar-brand" href="accueil.php">ANNONCEO</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,15 +32,16 @@
           if(userConnecte())
           { // accès page membre et admin
                echo '<li><a href="'. URL .'profil.php">Profil</a></li>';
-               echo '<li><a href="#">Annonce</a></li>';
+               echo '<li><a href="'. URL .'depot_annonce.php">Déposer une annonce</a></li>';
                echo '<li><a href="' . URL . 'connexion.php?action=deconnexion">Déconnexion</a></li>';
 
 
           }
           else
           { // internaute...
-              echo '<li><a href="inscription.php">Profil</a></li>';
+              echo '<li class="active"><a href="inscription.php">Profil</a></li>';
               echo '<li><a href="connexion.php">Connexion</a></li>';
+              echo '<li><a href="inscription.php">Inscription</a></li>';
 
           }
 

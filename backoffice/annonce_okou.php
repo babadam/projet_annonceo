@@ -3,15 +3,15 @@ require('../inc/init.inc.php');
 
 
 // Attention à personnaliser pour chaque page
-$resultat = $pdo -> query("SELECT * FROM note");
 
-
-// echo '<pre>';
-// print_r($gestion_note);
-// echo '</pre>';
+$resultat = $pdo -> query("SELECT * FROM annonce ");
 
 include('../inc/header.inc.php');
 include('../inc/nav.inc.php');
+
+// echo '<pre>';
+// print_r($gestion_annonce);
+// echo '</pre>';
 
 $contenu ='';
 $contenu .= 'Nombre de résultats : '.$resultat -> rowCount(). '<br><hr>';
@@ -30,9 +30,9 @@ $contenu .= '<tr>'; // création de la ligne de titre
     $contenu .= '<th colspan="3">Actions</th>';
     $contenu .= '</tr>';
 
-    while($gestion_note = $resultat -> fetch(PDO::FETCH_ASSOC)){
+    while($gestion_annonce = $resultat -> fetch(PDO::FETCH_ASSOC)){
         $contenu .= '<tr>';
-        foreach($gestion_note as $indices => $informations){
+        foreach($gestion_annonce as $indices => $informations){
             if($indices != 'mdp'){
                 $contenu .= '<td>' . $informations . '</td>';
             }
@@ -50,10 +50,8 @@ $contenu .= '<tr>'; // création de la ligne de titre
 
     $contenu .= '<table/>';
     $contenu .= '</div>';
-
 ?>
-
-<h1>Gestion des commentaires</h1>
+<h1>Gestion des annonces</h1>
 
 <?php echo $contenu; ?>
 
