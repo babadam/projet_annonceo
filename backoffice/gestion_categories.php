@@ -130,7 +130,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modification')
         </div>
         <div class="col-md-5">
             <input type="submit" class="form-control btn btn-info" name=""  value="Ajouter">
-        </div>    
+        </div>
     </form>
 </div>
 <?php
@@ -139,9 +139,10 @@ $resultat2 = $pdo -> prepare("INSERT INTO categorie (titre, motscles) VALUES (:t
 $resultat2 -> bindParam(':titre', $_POST['titre'], PDO::PARAM_STR);
 $resultat2 -> bindParam(':motscles', $_POST['motscles'], PDO::PARAM_STR);
 
-$resultat2 -> execute();
-$msg .= '<div class="alert alert-success">Catégorie ajoutée!</div>';
-echo $msg;
+if($resultat2 -> execute()){
+    echo  '<div class="alert alert-success">Catégorie ajoutée!</div>';
 
+}
+// echo $msg;
  include('../inc/footer.inc.php');
 ?>

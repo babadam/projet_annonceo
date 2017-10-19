@@ -4,8 +4,8 @@ require('inc/init.inc.php');
 
 // Attention à personnaliser pour chaque page
 
-// $resultat = $pdo -> query("SELECT * FROM annonce");
-// $depot_annonce = $resultat -> fetch(PDO::FETCH_ASSOC);
+$resultat = $pdo -> query("SELECT titre FROM categorie");
+$annonce_categorie = $resultat -> fetchAll(PDO::FETCH_ASSOC);
 
 include('inc/header.inc.php');
 include('inc/nav.inc.php');
@@ -94,7 +94,9 @@ if(!empty($_POST)){
                 <div class="form-group">
                     <label>Catégorie</label>
                     <select class="form-control" name="categorie">
-                        <option>Automobile</option>
+                        <?php foreach ($annonce_categorie as $value): ?>
+                             <?= '<option>'. $value['titre'] .'</option>'?>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>
