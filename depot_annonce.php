@@ -12,7 +12,7 @@ include('inc/nav.inc.php');
 
 if(!empty($_POST)){
     if(!empty($_FILES['photo']['name'])){ // Si une photo est uploadé
-        //echo '<pre>'; print_r($_FILES); echo '</pre>';
+        echo '<pre>'; print_r($_FILES); echo '</pre>';
         $nom_photo = time(). '_' . $_FILES['photo']['name']; // Si la photo est nommé tshirt.jpg, on la renomme : XX21-1543234454_tshirt.jpg pour éviter les doublons possible sur le serveur
 
         $chemin_photo = $_SERVER['DOCUMENT_ROOT'] . RACINE_SITE . 'photo/' . $nom_photo;
